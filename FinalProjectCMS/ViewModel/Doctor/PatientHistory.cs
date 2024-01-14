@@ -4,7 +4,6 @@ namespace FinalProjectCMS.ViewModel.Doctor
 {
     public class PatientHistory
     {
-        public int Appointment_Id { get; set; }
         public DateTime appointment_Date { get; set; }
         public string symptoms { get; set; }
         public string diagnosis_Desc { get; set; }
