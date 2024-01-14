@@ -3,6 +3,7 @@
     public class TestClass
     {
         public int MyProperty { get; set; }
+        public int MyProperty2 { get; set;}
 
     }
 }
