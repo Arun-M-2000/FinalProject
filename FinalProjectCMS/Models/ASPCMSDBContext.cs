@@ -37,7 +37,7 @@ namespace FinalProjectCMS.Models
         public virtual DbSet<TblStaffs> TblStaffs { get; set; }
         
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+       protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
