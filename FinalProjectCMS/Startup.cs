@@ -41,6 +41,12 @@ namespace FinalProjectCMS
             services.AddScoped<IDiagnosisRepository, DiagnosisRepository>();
             services.AddScoped<IPatientDetailsRepository, PatientDetailsRepository>();
             services.AddScoped<IPatientHistoryRepository, PatientHistoryRepository>();
+            services.AddScoped<ILabTestList, LabTestList>();
+            services.AddScoped<ILabReportRepository, LabReportRepository>();
+
+
+
+
 
 
 
