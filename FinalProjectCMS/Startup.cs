@@ -1,4 +1,5 @@
 using FinalProjectCMS.Models;
+using FinalProjectCMS.Repository.Admin;
 using FinalProjectCMS.Repository.Doctor;
 using FinalProjectCMS.Repository.Receptionist;
 using Microsoft.AspNetCore.Builder;
@@ -46,6 +47,18 @@ namespace FinalProjectCMS
             services.AddScoped<IPatientRepository, PatientRepository>();
             
             services.AddScoped<IAppointmentsRepository, AppointmentsRepository>();
+
+
+
+
+
+            //Admin
+
+            services.AddScoped<ILabRepository, LabRepository>();
+            services.AddScoped<IMedicineRepository, MedicineRepository>();
+            services.AddScoped<IStaffRepository, StaffRepository>();
+            services.AddScoped<IUserLoginRepository, UserLoginRepository>();
+
 
 
 
