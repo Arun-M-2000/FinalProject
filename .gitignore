@@ -361,3 +361,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/FinalProjectCMS/ViewModel/LabTechnician/TestClass.cs
+/FinalProjectCMS/Repository/LabTechnician/TestClass.cs
+/FinalProjectCMS/Repository/LabTechnician/TestClass.cs

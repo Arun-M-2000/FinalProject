@@ -1,4 +1,5 @@
 ﻿using System;
+using FinalProjectCMS.ViewModel.Pharmacist;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
@@ -34,8 +35,9 @@ namespace FinalProjectCMS.Models
         public virtual DbSet<TblRoles> TblRoles { get; set; }
         public virtual DbSet<TblSpecializations> TblSpecializations { get; set; }
         public virtual DbSet<TblStaffs> TblStaffs { get; set; }
+        
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+       protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {

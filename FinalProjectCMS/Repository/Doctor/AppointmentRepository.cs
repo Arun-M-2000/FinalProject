@@ -10,6 +10,7 @@ namespace FinalProjectCMS.Repository.Doctor
 {
     public class AppointmentRepository:IAppointmentRepository
     {
+
         private readonly ASPCMSDBContext _aSPCMSDBContext;
         public AppointmentRepository(ASPCMSDBContext aSPCMSDBContext)
         {
@@ -44,8 +45,6 @@ namespace FinalProjectCMS.Repository.Doctor
         }
 
         #endregion
-
-
 
 
 
