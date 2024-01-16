@@ -43,7 +43,6 @@ namespace FinalProjectCMS.Models
                 optionsBuilder.UseSqlServer("Data Source= DESKTOP-OF7QM0G\\SQLEXPRESS; Initial Catalog=ASPCMSDB; Integrated security=True");
             }
         }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Appointment>(entity =>

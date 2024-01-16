@@ -41,7 +41,7 @@ namespace FinalProjectCMS
             services.AddScoped<IDiagnosisRepository, DiagnosisRepository>();
             services.AddScoped<IPatientDetailsRepository, PatientDetailsRepository>();
             services.AddScoped<IPatientHistoryRepository, PatientHistoryRepository>();
-
+            services.AddLogging();
 
 
 
@@ -73,6 +73,7 @@ namespace FinalProjectCMS
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            //need to add below two lines
            app.UseCors(options =>
            options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
