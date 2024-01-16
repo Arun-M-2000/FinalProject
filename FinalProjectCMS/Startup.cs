@@ -1,5 +1,6 @@
 using FinalProjectCMS.Models;
 using FinalProjectCMS.Repository.Doctor;
+using FinalProjectCMS.Repository.Pharmacist;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -42,7 +43,11 @@ namespace FinalProjectCMS
             services.AddScoped<IPatientDetailsRepository, PatientDetailsRepository>();
             services.AddScoped<IPatientHistoryRepository, PatientHistoryRepository>();
 
-
+            //Pharmacist
+            //add dependency injection of MedicineRepository
+            services.AddScoped<IMedicineRepository, MedicineRepository>();
+            services.AddScoped<IPatientRepository, PatientRepository>();
+            services.AddScoped<IPatientMedRepository, PatientMedRepository>();
 
 
             //Json Resolver
