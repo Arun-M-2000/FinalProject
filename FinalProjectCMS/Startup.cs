@@ -1,9 +1,9 @@
 using FinalProjectCMS.Models;
 using FinalProjectCMS.Repository.Admin;
 using FinalProjectCMS.Repository.Doctor;
-
+using FinalProjectCMS.Repository.LabTechnician;
 using FinalProjectCMS.Repository.Pharmacist;
-
+using FinalProjectCMS.Repository.Receptionist;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -49,7 +49,7 @@ namespace FinalProjectCMS
             services.AddLogging();
 
             //Receptionist
-            services.AddScoped<IPatientRepository, PatientRepository>();
+            services.AddScoped<Repository.Receptionist.IPatientRepository, Repository.Receptionist.PatientRepository>();
             
             services.AddScoped<IAppointmentsRepository, AppointmentsRepository>();
 
@@ -60,7 +60,7 @@ namespace FinalProjectCMS
             //Admin
 
             services.AddScoped<ILabRepository, LabRepository>();
-            services.AddScoped<IMedicineRepository, MedicineRepository>();
+            services.AddScoped<Repository.Admin.IMedicineRepository, Repository.Admin.MedicineRepository>();
             services.AddScoped<IStaffRepository, StaffRepository>();
             services.AddScoped<IUserLoginRepository, UserLoginRepository>();
 
@@ -75,8 +75,8 @@ namespace FinalProjectCMS
 
             //Pharmacist
             //add dependency injection of MedicineRepository
-            services.AddScoped<IMedicineRepository, MedicineRepository>();
-            services.AddScoped<IPatientRepository, PatientRepository>();
+            services.AddScoped<Repository.Pharmacist.IMedicineRepository, Repository.Pharmacist.MedicineRepository>();
+            services.AddScoped<Repository.Pharmacist.IPatientRepository, Repository.Pharmacist.PatientRepository>();
             services.AddScoped<IPatientMedRepository, PatientMedRepository>();
 
 
