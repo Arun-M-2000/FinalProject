@@ -3,6 +3,7 @@
     public class PatientDetails
     {
         public int Appointment_Id { get; set; }
+        public int PatientId { get; set; }
         public string Patient_Name { get; set; }
         public string Gender { get; set; }
         public int PatientAge { get; set; }

@@ -30,7 +30,7 @@ namespace FinalProjectCMS.Controllers
             _logger = logger;
         }
 
-        [HttpGet("GetAppointmentView")]
+        [HttpGet("GetAppointmentView/{docId}")]
         public async Task<ActionResult<IEnumerable<AppointmentsVM>>> GetAppointmentView(int docId)
         {
             var appointments = await _appointmentRepository.GetAppointmentViewAsync(docId);
@@ -43,7 +43,7 @@ namespace FinalProjectCMS.Controllers
             return Ok(appointments);
         }
 
-        [HttpGet("GetPatientView")]
+        [HttpGet("GetPatientView/{appointmentId}")]
         public async Task<ActionResult<PatientDetails>> GetPatientView(int appointmentId)
         {
             var patientDetails = await _patientDetailsRepository.GetPatientViewAsync(appointmentId);
@@ -56,7 +56,7 @@ namespace FinalProjectCMS.Controllers
             return Ok(patientDetails);
         }
 
-        [HttpGet("GetPatientHistory")]
+        [HttpGet("GetPatientHistory/{patientId}")]
         public async Task<ActionResult<IEnumerable<PatientHistory>>> GetPatientHistory(int patientId)
         {
             var patientHistory = await _patientHistoryRepository.GetPatientHistoryAsync(patientId);

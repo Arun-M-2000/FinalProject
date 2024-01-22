@@ -26,6 +26,7 @@ namespace FinalProjectCMS.Repository.Doctor
                             select new PatientDetails
                             {
                                 Appointment_Id = appointment.AppointmentId,
+                                PatientId= patient.PatientId,
                                 Patient_Name = patient.PatientName,
                                 Gender = patient.Gender,
                                 BloodGroup = patient.BloodGroup,
