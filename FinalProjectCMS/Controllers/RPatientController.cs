@@ -87,7 +87,7 @@ namespace FinalProjectCMS.Controllers
 
         #endregion
 
-      
+
 
         #region Getpatient By id
         [HttpGet("{id}")]
@@ -109,9 +109,10 @@ namespace FinalProjectCMS.Controllers
         }
         #endregion
 
-      
 
+        #endregion
 
+       
         #region Disable PatientRecords
         [HttpPatch("{patientId}")]
         public async Task<IActionResult> DisableStatus(int patientId)

@@ -1,5 +1,9 @@
 using FinalProjectCMS.Models;
+using FinalProjectCMS.Repository.Admin;
 using FinalProjectCMS.Repository.Doctor;
+using FinalProjectCMS.Repository.LabTechnician;
+using FinalProjectCMS.Repository.Pharmacist;
+using FinalProjectCMS.Repository.Receptionist;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -42,7 +46,38 @@ namespace FinalProjectCMS
             services.AddScoped<IPatientDetailsRepository, PatientDetailsRepository>();
             services.AddScoped<IPatientHistoryRepository, PatientHistoryRepository>();
 
+            services.AddLogging();
 
+            //Receptionist
+            services.AddScoped<Repository.Receptionist.IPatientRepository, Repository.Receptionist.PatientRepository>();
+            
+            services.AddScoped<IAppointmentsRepository, AppointmentsRepository>();
+
+
+
+
+
+            //Admin
+
+            services.AddScoped<ILabRepository, LabRepository>();
+            services.AddScoped<Repository.Admin.IMedicineRepository, Repository.Admin.MedicineRepository>();
+            services.AddScoped<IStaffRepository, StaffRepository>();
+            services.AddScoped<IUserLoginRepository, UserLoginRepository>();
+
+
+            //Lab Technicians
+            services.AddScoped<ILabTestList, LabTestList>();
+            services.AddScoped<ILabReportRepository, LabReportRepository>();
+
+
+
+
+
+            //Pharmacist
+            //add dependency injection of MedicineRepository
+            services.AddScoped<Repository.Pharmacist.IMedicineRepository, Repository.Pharmacist.MedicineRepository>();
+            services.AddScoped<Repository.Pharmacist.IPatientRepository, Repository.Pharmacist.PatientRepository>();
+            services.AddScoped<IPatientMedRepository, PatientMedRepository>();
 
 
             //Json Resolver
@@ -73,6 +108,7 @@ namespace FinalProjectCMS
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            //need to add below two lines
            app.UseCors(options =>
            options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 

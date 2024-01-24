@@ -72,7 +72,7 @@ namespace FinalProjectCMS.Repository.Receptionist
 
 
 
-       
+
         #region GetPatientById
         public async Task<Patient> GetPatientById(int? id)
         {
@@ -85,8 +85,9 @@ namespace FinalProjectCMS.Repository.Receptionist
         }
         #endregion
 
-        
-        //Disable patient 
+        #endregion
+
+       //Disable patient 
 
         #region Disable Patient Status
         public async Task<Patient> DisableStatus(int? paitientId)
