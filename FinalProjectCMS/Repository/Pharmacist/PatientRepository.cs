@@ -34,6 +34,7 @@ namespace FinalProjectCMS.Repository.Pharmacist
                                      select new PatientViewModel
                                      {
                                          RegNo = p.RegisterNo,
+                                         AppointmentId=a.AppointmentId,
                                          PatientName = p.PatientName, // Adjust for correct property name
                                          Age = CalculateAge(p.PatientDob),
                                          Gender = p.Gender,

@@ -23,11 +23,11 @@ namespace FinalProjectCMS.Controllers
         [HttpGet]
         [Route("ViewModelGetPatientsMedList")]
 
-        public async Task<ActionResult<IEnumerable<PatientMedViewModel>>> GetPatientMedViewModel()
+        public async Task<ActionResult<IEnumerable<PatientMedViewModel>>> GetPatientMedViewModel(int appointmentID)
         {
             try
             {
-                var patientMedList = await _patientMedRepository.GetViewModelPatientMed();
+                var patientMedList = await _patientMedRepository.GetViewModelPatientMed(appointmentID);
                 return Ok(patientMedList);
             }
             catch (Exception ex)
