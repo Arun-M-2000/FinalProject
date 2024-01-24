@@ -72,13 +72,18 @@ namespace FinalProjectCMS.Repository.Receptionist
 
 
 
-        #region Get patient by name and phone number
 
-        public async Task<Patient> GetPatientByPhoneNumberAndName(long phoneNumber, string name)
+        #region GetPatientById
+        public async Task<Patient> GetPatientById(int? id)
         {
-            return await _dbContext.Patient.FirstOrDefaultAsync(p =>
-                  p.PhoneNumber.ToString() == phoneNumber.ToString() && p.PatientName == name);
+            if (_dbContext != null)
+            {
+                var medicine = await _dbContext.Patient.FindAsync(id);   //primary key
+                return medicine;
+            }
+            return null;
         }
+        #endregion
 
         #endregion
 

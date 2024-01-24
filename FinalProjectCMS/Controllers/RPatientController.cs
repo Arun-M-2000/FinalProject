@@ -87,30 +87,27 @@ namespace FinalProjectCMS.Controllers
 
         #endregion
 
-        #region serach patient by name and phone number
 
-        [HttpGet]
-        [Route("get-by-phone-and-name")]
-        public async Task<ActionResult<Patient>> GetPatientByPhoneNumberAndName(
-     [FromQuery] long phoneNumber,
-     [FromQuery] string name)
+
+        #region Getpatient By id
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Patient>> GetPatientById(int? id)
         {
             try
             {
-                var patient = await _patientRepository.GetPatientByPhoneNumberAndName(phoneNumber, name);
-
-                if (patient == null)
+                var med = await _patientRepository.GetPatientById(id);
+                if (med == null)
                 {
                     return NotFound();
                 }
-
-                return Ok(patient);
+                return Ok(med);
             }
             catch (Exception)
             {
                 return BadRequest();
             }
         }
+        #endregion
 
 
         #endregion
