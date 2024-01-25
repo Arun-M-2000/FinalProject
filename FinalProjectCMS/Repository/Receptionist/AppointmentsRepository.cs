@@ -48,7 +48,7 @@ namespace FinalProjectCMS.Repository.Receptionist
         }
         #endregion
 
-         #region Get Doctor by Specializaton Id
+        #region Get Doctor by Specializaton Id
         public async Task<List<DoctorViewModel>> GetAllDoctorBySpecializationId(int? specializationId)
         {
             if (_dbContext != null)

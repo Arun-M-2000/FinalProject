@@ -110,7 +110,7 @@ namespace FinalProjectCMS.Controllers
         #endregion
 
 
-        #endregion
+       
 
        
         #region Disable PatientRecords

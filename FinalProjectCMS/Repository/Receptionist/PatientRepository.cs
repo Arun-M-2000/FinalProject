@@ -85,8 +85,7 @@ namespace FinalProjectCMS.Repository.Receptionist
         }
         #endregion
 
-        #endregion
-
+        
        //Disable patient 
 
         #region Disable Patient Status
