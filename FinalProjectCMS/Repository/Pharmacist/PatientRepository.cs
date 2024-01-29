@@ -23,28 +23,38 @@ namespace FinalProjectCMS.Repository.Pharmacist
 
 
         #region GetViewModelPatients
-        public async Task<IEnumerable<PatientViewModel>> GetViewModelPatient()
+        public async Task<IEnumerable<PatientViewModel>> GetPatientsWithMedicinePrescriptionsToday()
         {
-            var patientList = await (from p in _Context.Patient
-                                     from a in _Context.Appointment
-                                     from d in _Context.TblDoctors
-                                     from s in _Context.TblSpecializations
-                                     from staff in _Context.TblStaffs // Assuming Staffs table for doctor names
-                                     where a.PatientId == p.PatientId && a.DocId == d.DocId && d.SpecializationId == s.SpecializationId && d.StaffId == staff.StaffId
-                                     select new PatientViewModel
-                                     {
-                                         RegNo = p.RegisterNo,
-                                         PatientName = p.PatientName, // Adjust for correct property name
-                                         Age = CalculateAge(p.PatientDob),
-                                         Gender = p.Gender,
-                                         PhNo = p.PhoneNumber,
-                                         DoctorName = $"{staff.FullName} ({s.Specialization})",
-                                         // Other properties...
-                                     }).ToListAsync();
+            DateTime today = DateTime.Today;
+
+            var patientList = await (
+                from a in _Context.Appointment
+                from p in _Context.Patient
+                from d in _Context.TblDoctors
+                from s in _Context.TblSpecializations
+                from mp in _Context.TblMedicinePrescriptions
+                from staff in _Context.TblStaffs // Assuming Staffs table for doctor names
+                where a.AppointmentDate.Date == today
+                      && a.PatientId == p.PatientId
+                      && a.DocId == d.DocId
+                      && d.SpecializationId == s.SpecializationId
+                      && d.StaffId == staff.StaffId
+                      && mp.AppointmentId == a.AppointmentId
+                select new PatientViewModel
+                {
+                    RegNo = p.RegisterNo,
+                    AppointmentId = a.AppointmentId,
+                    MedPrescriptionId = mp.MedPrescriptionId,
+                    PatientName = p.PatientName,
+                    Age = CalculateAge(p.PatientDob),
+                    Gender = p.Gender,
+                    PhNo = p.PhoneNumber,
+                    DoctorName = $"{staff.FullName} ({s.Specialization})"
+                    // Other properties...
+                }).ToListAsync();
 
             return patientList;
         }
-
 
 
         static int CalculateAge(DateTime birthDate)

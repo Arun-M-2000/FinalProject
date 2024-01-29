@@ -33,6 +33,7 @@ namespace FinalProjectCMS.Repository.Doctor
              .Include(a => a.TblReportGeneration)
                  .ThenInclude(rg => rg.Test)
              .Where(a => a.PatientId == patientId)
+             .OrderByDescending(a => a.AppointmentDate)
              .Select(a => new PatientHistory
              {
                  appointment_Date = a.AppointmentDate,

@@ -22,13 +22,12 @@ namespace FinalProjectCMS.Controllers
 
         #region Get ViewModel Patients
         [HttpGet]
-        [Route("ViewModelGetPatientsList")]
-
-        public async Task<ActionResult<IEnumerable<PatientViewModel>>> GetPatientList()
+        [Route("ViewModelGetPatientsListToday")]
+        public async Task<ActionResult<IEnumerable<PatientViewModel>>> GetPatientsListWithMedicinePrescriptionsToday()
         {
             try
             {
-                var patientList = await _patientRepository.GetViewModelPatient();
+                var patientList = await _patientRepository.GetPatientsWithMedicinePrescriptionsToday();
                 return Ok(patientList);
             }
             catch (Exception ex)
@@ -38,10 +37,9 @@ namespace FinalProjectCMS.Controllers
             }
         }
 
-
         #endregion
 
-        
+
         #region Search Patient by RegNo
 
         [HttpGet("{RegNo}")]

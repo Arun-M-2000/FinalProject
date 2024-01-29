@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patient Records</title>
+  <!-- Include Bootstrap CSS (add the appropriate link to your project) -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Add any additional custom styles here */
+    body {
+      padding-top: 20px;
+    }
+
+    .container {
+      max-width: 800px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2 class="mb-4">Patient Records</h2>
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th>ID</th>
+          <th>Register No</th>
+          <th>Patient Name</th>
+          <th>DOB</th>
+          <th>Address</th>
+          <th>Gender</th>
+          <th>Contact</th>
+          <th>Email ID</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of patientServices.patients">
+          <td>{{ p.PatientId }}</td>
+          <td>{{ p.RegisterNo }}</td>
+          <td>{{ p.PatientName }}</td>
+          <td>{{ p.PatientDob | date:'dd-MMM-yyyy' }}</td>
+          <td>{{ p.PatientAddr }}</td>
+          <td>{{ p.Gender }}</td>
+          <td>{{ p.PhoneNumber }}</td>
+          <td>{{ p.PatientEmail }}</td>
+          <td>
+            <button class="btn btn-info">Edit</button>
+            <button class="btn btn-sm btn-outline-danger" style="margin-left: 10px;">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Include Bootstrap JS and Popper.js (add the appropriate links to your project) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

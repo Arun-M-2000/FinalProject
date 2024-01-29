@@ -9,7 +9,7 @@ namespace FinalProjectCMS.Repository.Pharmacist
     public interface IPatientRepository
     {
         //ViewModel
-        Task<IEnumerable<PatientViewModel>> GetViewModelPatient();
+        Task<IEnumerable<PatientViewModel>> GetPatientsWithMedicinePrescriptionsToday();
 
 
         //Find Patient - Get Patient by RegNo

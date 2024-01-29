@@ -8,6 +8,6 @@ namespace FinalProjectCMS.Repository.Pharmacist
     {
 
         //ViewModel
-        Task<IEnumerable<PatientMedViewModel>> GetViewModelPatientMed();
+        Task<IEnumerable<PatientMedViewModel>> GetViewModelPatientMed(int appointmentID);
     }
 }

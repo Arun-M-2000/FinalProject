@@ -9,6 +9,8 @@
         public int PatientAge { get; set; }
         public string BloodGroup { get; set; }
         public long PhoneNumber { get; set; }
+
+
         public string AppointmentStatus { get; set; }
        
 
