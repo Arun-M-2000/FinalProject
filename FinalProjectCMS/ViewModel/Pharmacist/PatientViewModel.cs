@@ -6,6 +6,7 @@ namespace FinalProjectCMS.ViewModel.Pharmacist
     {
         public string RegNo { get; set; }
         public int AppointmentId { get; set; }
+        public int MedPrescriptionId { get; set; }
         public string PatientName { get; set; }
         public int Age { get; set; }
         public string Gender { get; set; }

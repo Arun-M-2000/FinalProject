@@ -23,6 +23,7 @@ namespace FinalProjectCMS.Repository.Pharmacist
 
         public async Task<IEnumerable<PatientMedViewModel>> GetViewModelPatientMed(int appointmentID)
         {
+            DateTime today = DateTime.Today;
             var prescriptionList = await (from appointment in _Context.Appointment
                                           join prescription in _Context.TblMedicinePrescriptions on appointment.AppointmentId equals prescription.AppointmentId
                                           join patient in _Context.Patient on appointment.PatientId equals patient.PatientId

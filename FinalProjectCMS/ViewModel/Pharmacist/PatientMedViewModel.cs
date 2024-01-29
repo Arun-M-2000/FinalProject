@@ -3,6 +3,7 @@
     public class PatientMedViewModel
     {
         public string RegNo { get; set; }
+        public int AppointmentId { get; set; }
         public string PatientName { get; set; }
         public string PrescribedMedicine { get; set; }
         public string Dosage { get; set; }

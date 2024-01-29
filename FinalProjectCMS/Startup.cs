@@ -75,7 +75,7 @@ namespace FinalProjectCMS
 
             //Pharmacist
             //add dependency injection of MedicineRepository
-            services.AddScoped<Repository.Admin.IMedicineRepository, Repository.Admin.MedicineRepository>();
+            services.AddScoped<Repository.Pharmacist.IMedicineRepository, Repository.Pharmacist.MedicineRepository>();
             services.AddScoped<Repository.Pharmacist.IPatientRepository, Repository.Pharmacist.PatientRepository>();
             services.AddScoped<IPatientMedRepository, PatientMedRepository>();
 
