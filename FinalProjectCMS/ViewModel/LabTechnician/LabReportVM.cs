@@ -7,6 +7,14 @@ namespace FinalProjectCMS.ViewModel.LabTechnician
     {
         public int ReportId { get; set; }
 
+        public int AppointmentId { get; set; }
+
+        public int LabPrescriptionId { get; set; }
+
+        public int TestId { get; set; }
+
+        public int StaffId { get; set; }
+
         public DateTime? ReportDate { get; set; }
 
         public string PatientName { get; set; }

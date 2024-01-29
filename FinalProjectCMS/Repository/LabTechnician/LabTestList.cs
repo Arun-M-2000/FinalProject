@@ -30,6 +30,8 @@ namespace FinalProjectCMS.Repository.LabTechnician
                                    join d in _dbContext.TblDoctors on a.DocId equals d.DocId
                                    join s in _dbContext.TblStaffs on d.StaffId equals s.StaffId
                                    join l in _dbContext.TblLabTests on lp.LabTestId equals l.TestId
+                                   where lp.LabTestStatus == "pending"
+
                                    select new LabTestVM
                                    {
                                        AppointmentId = a.AppointmentId,

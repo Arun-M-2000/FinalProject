@@ -44,9 +44,9 @@ namespace FinalProjectCMS.Controllers
             return await _labReportRepository.GetViewModelReport();
         }
         #endregion
-        #region Add an employee
+        #region Add an report
         [HttpPost]
-        public async Task<IActionResult> AddReport([FromBody] TblReportGeneration report)
+        public async Task<IActionResult> AddReport([FromBody] LabReportVM report)
         {
             //check the validation of code
             if (ModelState.IsValid)
@@ -72,13 +72,27 @@ namespace FinalProjectCMS.Controllers
             return BadRequest(report);
         }
         #endregion
-
+        #region
         [HttpGet]
         [Route("Get")]
 
-        public async Task<ActionResult<GetIDVM>> GetIDViewModel()
+        public async Task<ActionResult<GetIDVM>> GetIDViewModel(int AppointmentId)
         {
-            return await _labReportRepository.GetIDViewModel();
+            var idvm = await _labReportRepository.GetIDViewModel(AppointmentId);
+            return Ok(idvm);
         }
+        #endregion
+        #region
+        [HttpGet]
+        [Route("Bill")]
+
+        public async Task<ActionResult<BillVM>> GetLabBillVm(int ReportId)
+        {
+            var idvm = await _labReportRepository.GetBillVM(ReportId);
+            return Ok(idvm);
+        }
+        #endregion
+
     }
 }
+

@@ -15,7 +15,7 @@ namespace FinalProjectCMS.Models
         public string TestName { get; set; }
         public string LowRange { get; set; }
         public string HighRange { get; set; }
-        public decimal Price { get; set; }
+        public int Price { get; set; }
 
         public virtual ICollection<TblLabPrescriptions> TblLabPrescriptions { get; set; }
         public virtual ICollection<TblReportGeneration> TblReportGeneration { get; set; }
